@@ -46,3 +46,10 @@ class User(AbstractBaseUser):
     
     def has_module_perms(self, app_label):
         return True
+    
+class OtpVerify(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    otp = models.IntegerField()
+    
+    def __str__(self):
+        return str(self.user)  
